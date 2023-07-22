@@ -3,10 +3,19 @@ Vagrant.configure("2") do |config|
   config.hostmanager.enabled = true
   config.hostmanager.manage_host = true
   #config.vm.synced_folder "../scripts", "/scripts"
-  config.vm.provision "shell", inline: "echo Hello"
+  config.vm.provision "shell", inline:  "/vagrant/scripts/defaultScript.sh"
+  # <<-SHELL
+  #   echo Hello DevOps from New Puppet Node
+  #   #echo Hello MaitreWaff
+  #   #yum update -y
+  #   #whoami
+  #   #id
+  #   #pwd
+  #   #ls -la
+  # SHELL
 
   ### puppetmaster01 VM ###
-  config.vm.define "puppetmaster01" do |puppetmaster01|
+  config.vm.define "puppetmaster01", primary: true do |puppetmaster01|
     puppetmaster01.vm.box = "centos/7"
     puppetmaster01.vm.hostname = "puppetmaster01"
     puppetmaster01.vm.network "private_network", ip: "192.168.75.11"
@@ -16,8 +25,17 @@ Vagrant.configure("2") do |config|
       vb.cpus = 2
       vb.memory = "2048"
     end
-    puppetmaster01.vm.provision "shell",
-      inline: "echo hello from Puppet Master"
+    puppetmaster01.vm.provision "shell", inline: "/vagrant/scripts/installPuppetMaster.sh"
+    # <<-SHELL
+      # echo Hello from Puppet Master
+      #echo Installing Apache
+      #yum install httpd -y
+      #systemctl status httpd.service
+      #systemctl enable httpd.service
+      #systemctl start httpd.service
+      #systemctl status httpd.service
+      #ip a | grep 'inet '
+    # SHELL
   end
 
   ### puppetagent01 VM ###
@@ -30,6 +48,10 @@ Vagrant.configure("2") do |config|
       vb.name = "puppetagent01"
       vb.memory = "512"
     end
+    puppetagent01.vm.provision "shell", inline: "/vagrant/scripts/installPuppetAgent.sh"
+    # <<-SHELL
+    #   echo Hello from Puppet Agent 01
+    # SHELL
   end
 
   ### puppetagent02 VM ###
@@ -43,6 +65,10 @@ Vagrant.configure("2") do |config|
       vb.memory = "512"
       # vb.memory = "1024"
     end
+    puppetagent02.vm.provision "shell", inline: "/vagrant/scripts/installPuppetAgent.sh"
+    # <<-SHELL
+    #   echo Hello from Puppet Agent 02
+    # SHELL
   end
 
   # (1..3).each do |i|
