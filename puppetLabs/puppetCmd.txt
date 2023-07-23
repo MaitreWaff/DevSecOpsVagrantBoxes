@@ -1,0 +1,75 @@
+PUPPET ESSENTIALS
+
+# Prerequisites
+
+# Service Management
+
+
+On Master Node
+
+# systemctl enable/start/status puppetserver.service
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+
+
+
+
+Checking Config
+
+# puppet config print
+
+
+# puppetserver ca list
+#
+#
+#
+#
+#
+#
+#
+
+
+
+Manifests
+Default path: /etc/puppetlabs/code/environments/production/manifests/
+
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#

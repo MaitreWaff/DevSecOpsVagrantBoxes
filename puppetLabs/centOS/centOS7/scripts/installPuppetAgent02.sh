@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "######################################################################"
-echo "################## Puppet Agent Installation Script ##################"
+echo "################# Puppet Agent02 Installation Script #################"
 echo "######################################################################"
 
 echo "[+] Starting Installation Script..."
@@ -23,6 +23,9 @@ yum update -y
 echo "[+] Installing Puppet Agent Service"
 yum install -y puppet-agent
 
+
+cat /vagrant/tmpfiles/puppetagent02.conf >> /etc/puppetlabs/puppet/puppet.conf
+
 echo "[+] Starting, Enabling and Checking Puppet Agent Service"
 systemctl status puppet.service
 systemctl start puppet.service
@@ -30,5 +33,5 @@ systemctl enable puppet.service
 systemctl status puppet.service
 
 echo "######################################################################"
-echo "############## End of Puppet Agent Installation Script ###############"
+echo "############# End of Puppet Agent02 Installation Script ##############"
 echo "######################################################################"

@@ -34,6 +34,11 @@ yum update -y
 
 echo "[+] Installing Puppet Server Service"
 yum install -y puppetserver
+
+cat /vagrant/tmpfiles/puppetmaster01.conf >> /etc/puppetlabs/puppet/puppet.conf
+cp /vagrant/puppet.conf/site.pp /etc/puppetlabs/code/environments/production/manifests/site.pp
+cp /vagrant/puppet.conf/ntpdemo.pp /etc/puppetlabs/code/environments/production/manifests/ntpdemo.pp
+
 echo "[+] Starting, Enabling and Checking Puppet Server Service"
 systemctl status puppetserver.service
 systemctl start puppetserver.service
