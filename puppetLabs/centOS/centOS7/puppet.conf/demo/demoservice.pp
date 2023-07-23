@@ -1,0 +1,3 @@
+service { "nfs":
+  ensure => "running",
+}

@@ -15,8 +15,6 @@ yum install -y ntp
 systemctl enable ntpd.service
 systemctl start ntpd.service
 systemctl status ntpd.service
-timedatectl set-timezone Africa/Douala
-echo "TZ='Africa/Douala'; export TZ" >> ~/.profile
 
 echo "[+] Installing puppet repository"
 rpm -Uvh https://yum.puppet.com/puppet8-release-el-7.noarch.rpm

@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
   ### puppetmaster01 VM ###
   config.vm.define "puppetmaster01", primary: true do |puppetmaster01|
     puppetmaster01.vm.box = "centos/7"
-    puppetmaster01.vm.hostname = "puppetmaster01"
+    puppetmaster01.vm.hostname = "puppetmaster01.example.com"
     puppetmaster01.vm.network "private_network", ip: "192.168.75.11"
     #puppetmaster01.vm.synced_folder "../scripts", "/scripts", type="rsync"
     puppetmaster01.vm.provider "virtualbox" do |vb|
@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
   ### puppetagent01 VM ###
   config.vm.define "puppetagent01" do |puppetagent01|
     puppetagent01.vm.box = "centos/7"
-    puppetagent01.vm.hostname = "puppetagent01"
+    puppetagent01.vm.hostname = "puppetagent01.example.com"
     puppetagent01.vm.network "private_network", ip: "192.168.75.12"
     #puppetagent01.vm.synced_folder "../scripts", "/scripts"
     puppetagent01.vm.provider "virtualbox" do |vb|
@@ -35,7 +35,7 @@ Vagrant.configure("2") do |config|
   ### puppetagent02 VM ###
   config.vm.define "puppetagent02" do |puppetagent02|
     puppetagent02.vm.box = "centos/7"
-    puppetagent02.vm.hostname = "puppetagent02"
+    puppetagent02.vm.hostname = "puppetagent02.example.com"
     puppetagent02.vm.network "private_network", ip: "192.168.75.13"
     #puppetagent02.vm.synced_folder "../scripts", "/scripts"
     puppetagent02.vm.provider "virtualbox" do |vb|

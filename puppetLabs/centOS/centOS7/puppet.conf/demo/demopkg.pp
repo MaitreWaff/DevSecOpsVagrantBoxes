@@ -1,0 +1,3 @@
+package { "telnet":
+  ensure => "installed",
+}
