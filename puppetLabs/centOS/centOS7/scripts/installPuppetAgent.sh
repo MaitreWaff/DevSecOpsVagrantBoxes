@@ -1,21 +1,33 @@
 #!/bin/bash
 
-# yum install httpd -y
-# systemctl enable httpd.service
-# systemctl start httpd.service
-# systemctl status httpd.service
-# echo "
-# <html>
-# <head>
-# </head>
-# <body>
-# 	<h1>Hello MaitreWaff!</h1>
-# </body>
-# </html>
-# " > /var/www/html/index.html
 echo "######################################################################"
 echo "################## Puppet Agent Installation Script ##################"
 echo "######################################################################"
 
+echo "[+] Starting Installation Script..."
 
+echo "[+] Installing puppet repository"
+rpm -Uvh https://yum.puppet.com/puppet8-release-el-7.noarch.rpm
 
+echo "[+] Checking succesuful installation"
+rpm -qa | grep puppet
+rpm -qi puppet8-release
+echo "[+] Building Repository Cache"
+yum clean && yum makecache fast
+
+echo "[+] List Repository"
+yum repolist
+echo "[+] Updating the System"
+yum update -y
+
+echo "[+] Installing Puppet Agent Service"
+yum install -y puppet-agent
+echo "[+] Starting, Enabling and Checking Puppet Agent Service"
+systemctl status puppet.service
+systemctl start puppet.service
+systemctl enable puppet.service
+systemctl status puppet.service
+
+echo "######################################################################"
+echo "############## End of Puppet Agent Installation Script ###############"
+echo "######################################################################"
