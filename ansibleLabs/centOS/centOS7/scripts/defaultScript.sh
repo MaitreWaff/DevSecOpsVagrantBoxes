@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "[+] Hello DevOps from New Puppet Node"
+echo "[+] Hello DevOps from New Ansible Node"
 
 echo "######################################################################"
 echo "############  Starting Default Installation Script   #################"

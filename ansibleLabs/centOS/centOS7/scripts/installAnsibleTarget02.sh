@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "######################################################################"
-echo "################# Puppet Agent02 Installation Script #################"
+echo "############### Ansible Target02 Installation Script #################"
 echo "######################################################################"
 
 echo "[+] Starting Installation Script..."
@@ -33,5 +33,5 @@ echo "[+] Starting Installation Script..."
 # systemctl status puppet.service
 
 echo "######################################################################"
-echo "############# End of Puppet Agent02 Installation Script ##############"
+echo "############ End of Ansible Target02 Installation Script #############"
 echo "######################################################################"

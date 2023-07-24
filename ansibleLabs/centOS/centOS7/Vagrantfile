@@ -3,46 +3,56 @@ Vagrant.configure("2") do |config|
   config.hostmanager.enabled = true
   config.hostmanager.manage_host = true
   #config.vm.synced_folder "../scripts", "/scripts"
-  config.vm.provision "shell", inline:  "/vagrant/scripts/defaultScript.sh"
+  # config.vm.provision "shell", inline:  "/vagrant/scripts/defaultScript.sh"
 
   ### ansiblecontroller01 VM ###
   config.vm.define "ansiblecontroller01", primary: true do |ansiblecontroller01|
     ansiblecontroller01.vm.box = "centos/7"
     ansiblecontroller01.vm.hostname = "ansiblecontroller01.example.com"
-    ansiblecontroller01.vm.network "private_network", ip: "192.168.75.11"
+    ansiblecontroller01.vm.network "private_network", ip: "192.168.75.111"
     #ansiblecontroller01.vm.synced_folder "../scripts", "/scripts", type="rsync"
     ansiblecontroller01.vm.provider "virtualbox" do |vb|
       vb.name = "ansiblecontroller01"
       vb.cpus = 2
-      vb.memory = "4096"
+      vb.memory = "2048"
     end
-    ansiblecontroller01.vm.provision "shell", inline: "/vagrant/scripts/installAnsibleController01.sh"
+    # ansiblecontroller01.vm.provision "shell", inline: "/vagrant/scripts/installAnsibleController01.sh"
+    ansiblecontroller01.vm.provision "shell", inline: <<-SHELL
+      yum install -y wget vim
+      timedatectl set-timezone Africa/Douala
+      echo "TZ='Africa/Douala'; export TZ" >> ~/.profile
+      cat /vagrant/scripts/vimrc >> ~/.vimrc
+
+      yum install epel-release
+      yum repolist
+      yum install -y ansible
+    SHELL
   end
 
   ### ansibletarget01 VM ###
   config.vm.define "ansibletarget01" do |ansibletarget01|
     ansibletarget01.vm.box = "centos/7"
     ansibletarget01.vm.hostname = "ansibletarget01.example.com"
-    ansibletarget01.vm.network "private_network", ip: "192.168.75.12"
+    ansibletarget01.vm.network "private_network", ip: "192.168.75.112"
     #ansibletarget01.vm.synced_folder "../scripts", "/scripts"
     ansibletarget01.vm.provider "virtualbox" do |vb|
       vb.name = "ansibletarget01"
       vb.memory = "512"
     end
-    ansibletarget01.vm.provision "shell", inline: "/vagrant/scripts/installAnsibleTarget01.sh"
+    # ansibletarget01.vm.provision "shell", inline: "/vagrant/scripts/installAnsibleTarget01.sh"
   end
 
   ### ansibletarget02 VM ###
   config.vm.define "ansibletarget02" do |ansibletarget02|
     ansibletarget02.vm.box = "centos/7"
     ansibletarget02.vm.hostname = "ansibletarget02.example.com"
-    ansibletarget02.vm.network "private_network", ip: "192.168.75.13"
+    ansibletarget02.vm.network "private_network", ip: "192.168.75.113"
     #ansibletarget02.vm.synced_folder "../scripts", "/scripts"
     ansibletarget02.vm.provider "virtualbox" do |vb|
       vb.name = "ansibletarget02"
       vb.memory = "512"
     end
-    ansibletarget02.vm.provision "shell", inline: "/vagrant/scripts/installAnsibleTarget02.sh"
+    # ansibletarget02.vm.provision "shell", inline: "/vagrant/scripts/installAnsibleTarget02.sh"
   end
 
   # (1..3).each do |i|

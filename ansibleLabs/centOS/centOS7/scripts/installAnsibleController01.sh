@@ -16,6 +16,9 @@ systemctl enable ntpd.service
 systemctl start ntpd.service
 systemctl status ntpd.service
 
+echo "[+] Installing Ansible Controller"
+yum install -y ansible
+
 # echo "[+] Installing puppet repository"
 # rpm -Uvh https://yum.puppet.com/puppet8-release-el-7.noarch.rpm
 
