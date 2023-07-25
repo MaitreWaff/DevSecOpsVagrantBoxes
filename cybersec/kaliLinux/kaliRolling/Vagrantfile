@@ -15,32 +15,51 @@ Vagrant.configure("2") do |config|
     kalilinux.vm.provider "virtualbox" do |vb|
       vb.name = "kalilinux"
       vb.cpus = 2
-      vb.memory = "4096"
+      vb.memory = "2048"
     end
     # kalilinux.vm.provision "shell", inline: "/vagrant/scripts/installPuppetMaster.sh"
     # kalilinux.vm.provision "shell", inline: "/vagrant/scripts/defaultScript.sh"
     kalilinux.vm.provision "shell", inline: <<-SHELL
       whoami
       id
+      hostname
+      date
+      timedatectl
       uname -a
       apt-get update -y
       # apt-get upgrade -y
-      #apt-get install -y apache2
+      # apt-get install -y apache2
     SHELL
   end
 
-  ### metasploitable VM ###
-  config.vm.define "metasploitable" do |metasploitable|
-    metasploitable.vm.box = "rapid7/metasploitable3-win2k8"
-    metasploitable.vm.box_version = "0.1.0-weekly"
-    metasploitable.vm.hostname = "metasploitable.example.com"
-    metasploitable.vm.network "private_network", ip: "192.168.75.102"
-    #metasploitable.vm.synced_folder "../scripts", "/scripts"
-    metasploitable.vm.provider "virtualbox" do |vb|
-      vb.name = "metasploitable"
-      vb.memory = "512"
+  ### metasploitableub1404 VM ###
+  config.vm.define "metasploitableub1404" do |metasploitableub1404|
+    metasploitableub1404.vm.box = "rapid7/metasploitable3-ub1404"
+    metasploitableub1404.vm.box_version = "0.1.12-weekly"
+    metasploitableub1404.vm.hostname = "metasploitableub1404.example.com"
+    metasploitableub1404.vm.network "private_network", ip: "192.168.75.102"
+    #metasploitableub1404.vm.synced_folder "../scripts", "/scripts"
+    metasploitableub1404.vm.boot_timeout = 1800
+    metasploitableub1404.vm.provider "virtualbox" do |vb|
+      vb.name = "metasploitableub1404"
+      vb.memory = "1024"
     end
-    # metasploitable.vm.provision "shell", inline: "/vagrant/scripts/installmetasploitable.sh"
+    # metasploitableub1404.vm.provision "shell", inline: "/vagrant/scripts/installmetasploitableub1404.sh"
+  end
+
+  ### metasploitablewin2k8 VM ###
+  config.vm.define "metasploitablewin2k8" do |metasploitablewin2k8|
+    metasploitablewin2k8.vm.box = "rapid7/metasploitable3-win2k8"
+    metasploitablewin2k8.vm.box_version = "0.1.0-weekly"
+    metasploitablewin2k8.vm.hostname = "metasploitablewin2k8.example.com"
+    metasploitablewin2k8.vm.network "private_network", ip: "192.168.75.103"
+    #metasploitablewin2k8.vm.synced_folder "../scripts", "/scripts"
+    metasploitablewin2k8.vm.boot_timeout = 1800
+    metasploitablewin2k8.vm.provider "virtualbox" do |vb|
+      vb.name = "metasploitablewin2k8"
+      vb.memory = "1024"
+    end
+    # metasploitablewin2k8.vm.provision "shell", inline: "/vagrant/scripts/installmetasploitablewin2k8.sh"
   end
 
   # (1..3).each do |i|
