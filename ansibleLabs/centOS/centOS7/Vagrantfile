@@ -10,22 +10,26 @@ Vagrant.configure("2") do |config|
     ansiblecontroller01.vm.box = "centos/7"
     ansiblecontroller01.vm.hostname = "ansiblecontroller01.example.com"
     ansiblecontroller01.vm.network "private_network", ip: "192.168.75.111"
+    ansiblecontroller01.vm.boot_timeout = 1800
     #ansiblecontroller01.vm.synced_folder "../scripts", "/scripts", type="rsync"
     ansiblecontroller01.vm.provider "virtualbox" do |vb|
       vb.name = "ansiblecontroller01"
       vb.cpus = 2
-      vb.memory = "2048"
+      vb.memory = "4096"
     end
     # ansiblecontroller01.vm.provision "shell", inline: "/vagrant/scripts/installAnsibleController01.sh"
     ansiblecontroller01.vm.provision "shell", inline: <<-SHELL
+      yum repolist
+      yum install -y epel-release
+      yum repolist
+
       yum install -y wget vim
+      #  python3-pip
+      yum install -y ansible
+
       timedatectl set-timezone Africa/Douala
       echo "TZ='Africa/Douala'; export TZ" >> ~/.profile
       cat /vagrant/scripts/vimrc >> ~/.vimrc
-
-      yum install epel-release
-      yum repolist
-      yum install -y ansible
     SHELL
   end
 
@@ -37,7 +41,8 @@ Vagrant.configure("2") do |config|
     #ansibletarget01.vm.synced_folder "../scripts", "/scripts"
     ansibletarget01.vm.provider "virtualbox" do |vb|
       vb.name = "ansibletarget01"
-      vb.memory = "512"
+      # vb.memory = "512"
+      vb.memory = "1024"
     end
     # ansibletarget01.vm.provision "shell", inline: "/vagrant/scripts/installAnsibleTarget01.sh"
   end
