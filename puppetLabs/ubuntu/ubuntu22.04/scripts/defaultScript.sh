@@ -6,10 +6,8 @@ echo "######################################################################"
 echo "############  Starting Default Installation Script   #################"
 echo "######################################################################"
 
-# yum install -y wget
-
 # echo "[+] Installing wget utils"
-# apt-get update -y
+# apt update -y
 # apt install -y wget vim
 echo "[+] Setting Timezone"
 timedatectl set-timezone Africa/Douala
