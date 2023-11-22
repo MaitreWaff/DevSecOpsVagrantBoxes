@@ -1,0 +1,66 @@
+ENV["LC_ALL"] = "en_US.UTF-8"
+Vagrant.configure("2") do |config|
+  config.hostmanager.enabled = true
+  config.hostmanager.manage_host = true
+  #config.vm.synced_folder "../scripts", "/scripts"
+  config.vm.provision "shell", inline:  "/vagrant/scripts/defaultScript.sh"
+  # config.vm.provision "shell", inline:  <<-SHELL
+    # whoami
+  #   uname -a
+  #   hostname
+  #   apt-get update -y
+  # SHELL
+
+  ### k8smaster01 VM ###
+  config.vm.define "k8smaster01", primary: true do |k8smaster01|
+    k8smaster01.vm.box = "generic/ubuntu2204"
+    k8smaster01.vm.box_version = "4.2.16"
+    k8smaster01.vm.hostname = "k8smaster01.example.com"
+    k8smaster01.vm.network "private_network", ip: "192.168.55.21"
+    #k8smaster01.vm.synced_folder "../scripts", "/scripts", type="rsync"
+    # k8smaster01.vm.synced_folder "./scripts", "/scripts" #, type="rsync"
+    k8smaster01.vm.synced_folder ".", "/vagrant", disabled: false, owner: "vagrant", group: "vagrant" #, type="rsync"
+    k8smaster01.vm.provider "virtualbox" do |vb|
+      vb.name = "k8smaster01"
+      vb.cpus = 2
+      vb.memory = "4096"
+    end
+    # k8smaster01.vm.provision "shell", inline: "/vagrant/scripts/installPuppetMaster.sh"
+  end
+
+  ### k8snode01 VM ###
+  config.vm.define "k8snode01" do |k8snode01|
+    k8snode01.vm.box = "generic/ubuntu2204"
+    k8snode01.vm.box_version = "4.2.16"
+    k8snode01.vm.hostname = "k8snode01.example.com"
+    k8snode01.vm.network "private_network", ip: "192.168.55.22"
+    #k8snode01.vm.synced_folder "../scripts", "/scripts"
+    k8snode01.vm.provider "virtualbox" do |vb|
+      vb.name = "k8snode01"
+      vb.memory = "512"
+    end
+    # k8snode01.vm.provision "shell", inline: "/vagrant/scripts/installk8snode01.sh"
+  end
+
+  ## k8snode02 VM ###
+  config.vm.define "k8snode02" do |k8snode02|
+    k8snode02.vm.box = "generic/ubuntu2204"
+    k8snode02.vm.box_version = "4.2.16"
+    k8snode02.vm.hostname = "k8snode02.example.com"
+    k8snode02.vm.network "private_network", ip: "192.168.55.23"
+    #k8snode02.vm.synced_folder "../scripts", "/scripts"
+    k8snode02.vm.provider "virtualbox" do |vb|
+      vb.name = "k8snode02"
+      vb.memory = "512"
+    end
+    # k8snode02.vm.provision "shell", inline: "/vagrant/scripts/installk8snode02.sh"
+  end
+
+  # (1..3).each do |i|
+  #   config.vm.define "puppetagent-#{i}" do |node|
+  #     node.vm.provision "shell",
+  #       inline: "echo hello from node #{i}"
+  #   end
+  # end
+
+end

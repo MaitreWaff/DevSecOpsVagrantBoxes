@@ -1,0 +1,816 @@
+# Installing Docker & Docker-Compose, Activating Docker Service
+
+
+[root@stapp01 ~]# history
+    1  cat /etc/os-release
+    2  yum search docker-ce
+    3  yum remove docker                   docker-client                   docker-client-latest                   docker-common                   docker-latest                   docker-latest-logrotate                   docker-logrotate                   docker-engine
+    4  yum install -y yum-utils
+    5  yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+    6  yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    7  systemctl status docker
+    8  systemctl enable docker
+    9  systemctl status docker
+   10  systemctl start docker
+   11  systemctl status docker
+   12  docker-compose
+   13  dnf install curl -y
+   14  curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+   15  ls -l
+   16  ls -l /usr/local/bin/docker-compose
+   17  docker-compose
+   18  ls -l /usr/local/bin/docker-compose
+   19  chmod a+x /usr/local/bin/docker-compose
+   20  docker-compose version
+   21  history
+[root@stapp01 ~]#
+
+
+
+
+##### history
+
+
+### GITLAB Server
+
+
+root@gitlab-server:~# history
+    1  dhclient enp0s9
+    2  dhclient enp0s10
+    3  ip a s
+    4  ip a s  | grep 'inet '
+    5  shutdown now
+    6  ip a s
+    7  dhclient -r enp0s10
+    8  dhclient enp0s10.
+    9  dhclient enp0s10
+   10  ip a s
+   11  dhclient enp0s9
+   12  ip a s
+   13  ip a s | grep 'inet ' | grep 56
+   14  ip a s | grep 'inet '
+   15  cat /etc/hosts
+   16  vim /etc/hosts
+   17  cat /etc/hosts
+   18  shutdown now
+   19  systemctl status networkd-dispatcher.service
+   20  systemctl restart networkd-dispatcher.service
+   21  ip a s
+   22  ls -l /etc/netplan/00-installer-config.yaml
+   23  cat /etc/netplan/00-installer-config.yaml
+   24  ip link
+   25  ip a s
+   26  ip r s
+   27  cat /etc/netplan/00-installer-config.yaml
+   28  ip link
+   29  ip a s | grep 'inet '
+   30  ping -c4 192.168.56.104
+   31  ping -c4 192.168.56.102
+   32  ping -c4 192.168.56.105
+   33  ping -c4 192.168.56.103
+   34  ip r s
+   35  cat /etc/netplan/00-installer-config.yaml
+   36  ip link
+   37  ip a s
+   38  ping 10.0.2.16
+   39  reboot
+   40  clear
+   41  ip link
+   42  ip a s
+   43  ls -l /etc/networks
+   44  file /etc/networks
+   45  wc -l /etc/networks.
+   46  wc -l /etc/network
+   47  wc -l /etc/networks
+   48  cat /etc/networks
+   49  ls -l /etc/network/
+   50  ls -l /etc/netplan/
+   51  ls -l /etc/netplan/00-installer-config.yaml
+   52  file /etc/netplan/00-installer-config.yaml
+   53  wc -l /etc/netplan/00-installer-config.yaml
+   54  cat /etc/netplan/00-installer-config.yaml.
+   55  cat /etc/netplan/00-installer-config.yaml
+   56  ip link
+   57  ip a
+   58  vim /etc/netplan/00-installer-config.yaml
+   59  ping 192.68.56.1
+   60  ping 192.68.56.2
+   61  ping 192.68.56.3
+   62  vim /etc/netplan/00-installer-config.yaml
+   63  sudo netplan apply
+   64  vim /etc/netplan/00-installer-config.yaml
+   65  sudo netplan apply
+   66  vim /etc/netplan/00-installer-config.yaml
+   67  route -n
+   68  ip route
+   69  vim /etc/netplan/00-installer-config.yaml
+   70  cp /etc/netplan/00-installer-config.yaml .
+   71  vim /etc/netplan/00-installer-config.yaml
+   72  cat /etc/netplan/00-installer-config.yaml
+   73  ip route show
+   74  netplan apply
+   75  vim /etc/netplan/00-installer-config.yaml
+   76  ls -l
+   77  mv 00-installer-config.yaml netplanDefaultConfigFile.yaml
+   78  ls -l
+   79  netplan apply
+   80  ip a s
+   81  ping www.google.com
+   82  ip route show
+   83  netplan apply
+   84  ip routee
+   85  ip r
+   86  ip route
+   87  vim /etc/netplan/00-installer-config.yaml
+   88  netplan apply
+   89  ip r
+   90  ping www.google.com
+   91  ip r
+   92  cat /etc/hosts
+   93  ip ro s
+   94  ip a s
+   95  ping 192.168.8.1
+   96  ip r s
+   97  cp /etc/netplan/00-installer-config.yaml netplanConfig.yaml
+   98  vim /etc/netplan/00-installer-config.yaml
+   99  ping 192.168.56.1
+  100  vim /etc/netplan/00-installer-config.yaml
+  101  sudo netplan apply
+  102  ip r s
+  103  ping www.google.com
+  104  ping 192.168.8.1
+  105  ip a s
+  106  ip r s
+  107  vim /etc/netplan/00-installer-config.yaml
+  108  netplan apply
+  109  ip a s
+  110  ip r s
+  111  ping www.google.com
+  112  ping 192.168.8.1
+  113  vim /etc/netplan/00-installer-config.yaml
+  114  netplan apply
+  115  ip r s
+  116  ping www.google.com
+  117  ping 192.168.8.1
+  118  netplan apply
+  119  ip r s
+  120  ip a s
+  121  vim /etc/netplan/00-installer-config.yaml
+  122  netplan apply
+  123  ip a s
+  124  ip r s
+  125  ping 192.168.8.1
+  126  ping www.google.com
+  127  vim /etc/netplan/00-installer-config.yaml
+  128  netplan apply
+  129  ping www.google.com
+  130  ping 192.168.8.1
+  131  vim /etc/netplan/00-installer-config.yaml
+  132  cat /etc/netplan/00-installer-config.yaml.
+  133  cat /etc/netplan/00-installer-config.yaml
+  134  vim /etc/hosts
+  135  ping -c4 www.google.com
+  136  ping 192.168.8.1
+  137  apt update
+  138  shutdown now
+  139  clear
+  140  cat /etc/hosts
+  141  vim /etc/hosts
+  142  shutdown now
+  143  ip a s
+  144  ip a s | grep 'inet '
+  145  shutdown now
+  146  ip a s
+  147  ip a s  | grep 'inet '
+  148  shutdown now
+  149  clear
+  150  ls -l /etc/netplan/00-installer-config.yaml
+  151  cat /etc/netplan/00-installer-config.yaml
+  152  shutdown now
+  153  clear
+  154  history
+  155  exit
+  156  shutdown now
+  157  date
+  158  hostname
+  159  ls -l /etc/hosts
+  160  cat /etc/hosts
+  161  vim /etc/hosts
+  162  cat /etc/hosts
+  163  ping gitlab.home
+  164  ip a s | grep 'inet '
+  165  gitlab-ctl
+  166  gitlab-ctl status
+  167  vim /etc/gitlab/gitlab.rb
+  168  grep home /etc/gitlab/gitlab.rb
+  169  gitlab-ctl reconfigure
+  170  apt-get update
+  171  apt-get upgrade -y
+  172  apt-get update --fix-missing
+  173  apt-get upgrade -y
+  174  apt-get update --fix-missing
+  175  apt-get upgrade -y
+  176  vim /etc/hosts
+  177  wc -l /etc/hosts
+  178  cat /etc/hosts
+  179  vim /etc/hosts
+  180  wc -l /etc/hosts
+  181  cat /etc/hosts
+  182  ls -l
+  183  mkdir bin
+  184  cat > bin/systemupdate.sh
+  185  cat bin/systemupdate.sh
+  186  ls -l bin/systemupdate.sh
+  187  chmod +x bin/systemupdate.sh
+  188  ./bin/systemupdate.sh
+  189  reboot
+  190  ls -l
+  191  ./bin/systemupdate.sh
+  192  apt-get update --fix-missing
+  193  ./bin/systemupdate.sh
+  194  reboot
+  195  ls -l bin/systemupdate.sh
+  196  ./bin/systemupdate.sh
+  197  reboot
+  198  shutdown -P now
+  199  sudo su -
+  200  reboot
+  201  shutdown -P now
+  202  reboot
+  203  clear
+  204  ls -l
+  205  ./bin/systemupdate.sh
+  206  apt-get update --fix-missing
+  207  cat ./bin/systemupdate.sh
+  208  apt-get upgrade -y
+  209  apt-get update --fix-missing
+  210  ./bin/systemupdate.sh
+  211  shutdown -P now
+  212  ls -l
+  213  ./bin/systemupdate.sh
+  214  ls -l
+  215  ./bin/systemupdate.sh
+  216  ls -l
+  217  pwd
+  218  whoami
+  219  ls -l
+  220  ./bin/systemupdate.sh
+  221  ping www.google.com -c 7
+  222  ping www.google.com
+  223  reboot
+  224  ping www.google.com
+  225  shutdown -P now
+  226  ./bin/systemupdate.sh
+  227  reboot
+  228  clear
+  229  ./bin/systemupdate.sh
+  230  apt-get update --fix-missing
+  231  ./bin/systemupdate.sh
+  232  shutdown -P now
+  233  clear
+  234  ls -l
+  235  ls -l ./bin/systemupdate.sh
+  236  ./bin/systemupdate.sh
+  237  ping www.google.com
+  238  ls -l ./bin/systemupdate.sh
+  239  ./bin/systemupdate.sh
+  240  ./bin/systemupdate.sh
+  241  ping www.google.com
+  242  reboot
+  243  ls -l
+  244  ls -l ./bin/systemupdate.sh
+  245  cat ./bin/systemupdate.sh
+  246  ./bin/systemupdate.sh
+  247  clear
+  248  ./bin/systemupdate.sh
+  249  ping www.google.com
+  250  cat /etc/netplan/00-installer-config.yaml
+  251  clear
+  252  cd
+  253  pwd
+  254  ./bin/systemupdate.sh
+  255  ping www.google.com
+  256  ./bin/systemupdate.sh
+  257  reboot
+  258  ping www.google.com
+  259  ./bin/systemupdate.sh
+  260  shutdown -P now
+  261  clear
+  262  ls -l ./bin/systemupdate.sh
+  263  cat ./bin/systemupdate.sh
+  264  ./bin/systemupdate.sh
+  265  shutdown -P now
+  266  ls -l
+  267  ls -l bin/
+  268  cat bin/systemupdate.sh
+  269  ./bin/systemupdate.sh
+  270  reboot
+  271  ls -l ./bin/systemupdate.sh
+  272  cat ./bin/systemupdate.sh
+  273  ./bin/systemupdate.sh
+  274  shutdown -P now
+  275  ls -l
+  276  ls -l ./bin/systemupdate.sh
+  277  ./bin/systemupdate.sh
+  278  ifconfig
+  279  apt install net-tools -y
+  280  ifconfig
+  281  ifconfig  | grep 'inet '
+  282  ls -l /etc/netplan/00-installer-config.yaml
+  283  vim /etc/netplan/00-installer-config.yaml
+  284  netplan
+  285  netplan try
+  286  ifconfig | grep 'inet '
+  287  ifconfig -a
+  288  ifconfig | grep 'inet '
+  289  netplan apply
+  290  ifconfig | grep 'inet '
+  291  reboot
+  292  ifconfig | grep 'inet '
+  293  shutdown -P now
+  294  ls -l ./bin/systemupdate.sh
+  295  ./bin/systemupdate.sh
+  296  ifconfig | grep 'inet '
+  297  netstat -antp
+  298  netstat -antp | grep gitlab
+  299  ifconfig | grep 'inet '
+  300  history
+root@gitlab-server:~#
+
+
+
+
+
+
+
+
+###### JENKINS Server
+
+root@jenkins-server:~# history
+    1  ip a s
+    2  ip a s | grep 'inet ' | grep 56
+    3  ip a s | grep 'inet '
+    4  cat /etc/hosts
+    5  vim /etc/hosts
+    6  cat /etc/hosts
+    7  vim /etc/hosts
+    8  cat /etc/hosts
+    9  vim /etc/hosts
+   10  cat /etc/hosts
+   11  grep gitlab /etc/host
+   12  grep gitlab /etc/hosts
+   13  vim /etc/hosts
+   14  shutdown now
+   15  ls -l /etc/netplan/00-installer-config.yaml
+   16  cat /etc/netplan/00-installer-config.yaml
+   17  ip link
+   18  ip a s
+   19  ip r s
+   20  cat /etc/netplan/00-installer-config.yaml
+   21  ip link
+   22  ip a s | grep 'inet '
+   23  ping -c4 192.168.56.104
+   24  ping -c4 192.168.56.102
+   25  ping -c4 192.168.56.105
+   26  ping -c4 192.168.56.103
+   27  ip r s
+   28  cat /etc/netplan/00-installer-config.yaml
+   29  ip link
+   30  ip a s
+   31  cp /etc/netplan/00-installer-config.yaml .
+   32  cat /etc/netplan/00-installer-config.yaml
+   33  cat > /etc/netplan/00-installer-config.yaml
+   34  netplan apply
+   35  ip a s
+   36  ping www.google.com
+   37  reboot
+   38  ip ro s
+   39  ifconfp a s
+   40  ping 192.168.8.1
+   41  ip r s
+   42  cp /etc/netplan/00-installer-config.yaml netplanConfig.yaml
+   43  ls -ll
+   44  vim /etc/netplan/00-installer-config.yaml
+   45  netplan apply
+   46  vim /etc/netplan/00-installer-config.yaml
+   47  netplan apply
+   48  cat /etc/netplan/00-installer-config.yaml
+   49  python3 -VV
+   50  python3 -V
+   51  pip -V
+   52  which pip
+   53  ls -l /usr/bin/pip
+   54  ls -l /usr/bin/pip3
+   55  diff /usr/bin/pip /usr/bin/pip3
+   56  apt update
+   57  su - jenkins
+   58  ping -c4 www.google.com
+   59  ping 192.168.8.1
+   60  apt update
+   61  shutdown now
+   62  clear
+   63  cat /etc/hosts
+   64  vim /etc/hosts
+   65  su - jenkins
+   66  shutdown now
+   67  ip a s
+   68  ip a s | grep 'inet '
+   69  shutdown now
+   70  ip a s
+   71  ip a s  | grep 'inet '
+   72  shutdown now
+   73  clear
+   74  ls -l /etc/netplan/00-installer-config.yaml
+   75  cat /etc/netplan/00-installer-config.yaml
+   76  shutdown now
+   77  clear
+   78  history
+   79  exit
+   80  shutdown now
+   81  date
+   82  vim /etc/hosts
+   83  cat /etc/hosts
+   84  apt-get update
+   85  apt-get upgrade -y
+   86  apt-get update --fix-missing
+   87  apt-get upgrade -y
+   88  pwd
+   89  ls -l
+   90  mkdir bin
+   91  cat > bin/systemupdate.sh
+   92  cat bin/systemupdate.sh
+   93  ls -l bin/systemupdate.sh
+   94  chmod +x bin/systemupdate.sh
+   95  ./bin/systemupdate.sh
+   96  reboot
+   97  su - jenkins
+   98  apt install python3.8-venv
+   99  su - jenkins
+  100  ls -l
+  101  ./bin/systemupdate.sh
+  102  reboot
+  103  ls -l bin/systemupdate.sh
+  104  ./bin/systemupdate.sh
+  105  apt-get update --fix-missing
+  106  ./bin/systemupdate.sh
+  107  grep jenkins /etc/passwd
+  108  grep jenkins /etc/passwd | cut -d: -f6
+  109  ls -l /var/lib/jenkins/
+  110  pwd
+  111  ls -l /var/lib/jenkins/
+  112  ls -l /var/lib/jenkins/jenkins.war
+  113  ls -l /usr/share/jenkins/
+  114  ls -l /usr/share/jenkins/migrate
+  115  file /usr/share/jenkins/migrate
+  116  wc -l /usr/share/jenkins/migrate
+  117  ls -l /var/log/jenkins/
+  118  ls -l /var/lib/jenkins/
+  119  ls -l /run/jenkins
+  120  systemctl status jenkins.service
+  121  ls -l /var/lib/
+  122  ls -l /var/lib/jenkins/
+  123  wc -l /var/lib/jenkins/config.xml
+  124  grep 'version' /var/lib/jenkins/config.xml
+  125  reboot
+  126  ls -l
+  127  systemctl status jenkins.service
+  128  systemctl restart jenkins.service
+  129  systemctl status jenkins.service
+  130  ls -l /usr/share/java/jenkins.war
+  131  shutdown -P now
+  132  su - jenkins
+  133  reboot
+  134  shutdown -P now
+  135  reboot
+  136  clear
+  137  ls -l
+  138  ./bin/systemupdate.sh
+  139  apt-get update --fix-missing
+  140  ./bin/systemupdate.sh
+  141  shutdown -P now
+  142  ls -l
+  143  ./bin/systemupdate.sh
+  144  ls -l
+  145  ./bin/systemupdate.sh
+  146  ls -l
+  147  pwd
+  148  whoami
+  149  ls -l
+  150  ./bin/systemupdate.sh
+  151  ping www.google.com -c 7
+  152  ping www.google.com
+  153  reboot
+  154  ping www.google.com
+  155  shutdown -P now
+  156  ./bin/systemupdate.sh
+  157  apt-get update --fix-missing
+  158  ./bin/systemupdate.sh
+  159  apt-get update --fix-missing
+  160  reboot
+  161  clear
+  162  ./bin/systemupdate.sh
+  163  apt-get update --fix-missing
+  164  ./bin/systemupdate.sh
+  165  reboot
+  166  apt-get update --fix-missing
+  167  ./bin/systemupdate.sh
+  168  shutdown -P now
+  169  clear
+  170  ls -l
+  171  ls -l ./bin/systemupdate.sh
+  172  ./bin/systemupdate.sh
+  173  ping www.google.com
+  174  ls -l ./bin/systemupdate.sh
+  175  ./bin/systemupdate.sh
+  176  ./bin/systemupdate.sh
+  177  ping www.google.com
+  178  reboot
+  179  ls -l
+  180  ls -l ./bin/systemupdate.sh
+  181  cat ./bin/systemupdate.sh
+  182  ./bin/systemupdate.sh
+  183  clear
+  184  ./bin/systemupdate.sh
+  185  ping www.google.com
+  186  cat /etc/netplan/00-installer-config.yaml
+  187  clear
+  188  cd
+  189  pwd
+  190  ./bin/systemupdate.sh
+  191  ping www.google.com
+  192  ./bin/systemupdate.sh
+  193  reboot
+  194  ping www.google.com
+  195  ./bin/systemupdate.sh
+  196  shutdown -P now
+  197  clear
+  198  ls -l ./bin/systemupdate.sh
+  199  cat ./bin/systemupdate.sh
+  200  ./bin/systemupdate.sh
+  201  shutdown -P now
+  202  ls -l
+  203  ls -l bin/
+  204  cat bin/systemupdate.sh
+  205  ./bin/systemupdate.sh
+  206  reboot
+  207  ls -l ./bin/systemupdate.sh
+  208  cat ./bin/systemupdate.sh
+  209  ./bin/systemupdate.sh
+  210  shutdown -P now
+  211  ls -l
+  212  ls -l ./bin/systemupdate.sh
+  213  ./bin/systemupdate.sh
+  214  ifconfig
+  215  apt install net-tools -y
+  216  ifconfig
+  217  ifconfig  | grep 'inet '
+  218  ls -l /etc/netplan/00-installer-config.yaml
+  219  vim /etc/netplan/00-installer-config.yaml
+  220  netplan
+  221  netplan try
+  222  ifconfig | grep 'inet '
+  223  ifconfig -a
+  224  ifconfig | grep 'inet '
+  225  netplan apply
+  226  ifconfig | grep 'inet '
+  227  reboot
+  228  ifconfig | grep 'inet '
+  229  shutdown -P now
+  230  ls -l ./bin/systemupdate.sh
+  231  ./bin/systemupdate.sh
+  232  ifconfig | grep 'inet '
+  233  netstat -antp
+  234  netstat -antp | grep gitlab
+  235  ifconfig | grep 'inet '
+  236  history
+root@jenkins-server:~#
+
+
+
+
+#### APP Server
+
+
+root@app-server:~# history
+    1  ip a s
+    2  dhclient enp0s9
+    3  dhclient enp0s8
+    4  ip a s
+    5  ip a s | grep 'inet '
+    6  shutdown now
+    7  adduser deployment-user
+    8  ls -l /home/
+    9  usermod -aG sudo deployment-user
+   10  sudo -H pip3 install --upgrade pip
+   11  ip a s
+   12  dhclient enp0s9
+   13  ip a s
+   14  shutdown now
+   15  ip a s
+   16  dhclient enp0s9
+   17  ip a s
+   18  dhclient -r enp0s9
+   19  dhclient enp0s9
+   20  ip a s
+   21  ip a s | grep 'inet ' | grep 56
+   22  ip a s | grep 'inet '
+   23  cat /etc/hosts
+   24  shutdown now
+   25  ls -l /etc/netplan/00-installer-config.yaml
+   26  cat /etc/netplan/00-installer-config.yaml
+   27  ip link
+   28  ip a s
+   29  ip r s
+   30  cat /etc/netplan/00-installer-config.yaml
+   31  ip link
+   32  ip a s | grep 'inet '
+   33  ping -c4 192.168.56.104
+   34  ping -c4 192.168.56.102
+   35  ping -c4 192.168.56.105
+   36  ping -c4 192.168.56.103
+   37  ip r s
+   38  cat /etc/netplan/00-installer-config.yaml
+   39  ip link
+   40  ip a s
+   41  ls -l
+   42  cp /etc/netplan/00-installer-config.yaml .
+   43  cat /etc/netplan/00-installer-config.yaml
+   44  cat > /etc/netplan/00-installer-config.yaml
+   45  cat /etc/netplan/00-installer-config.yaml
+   46  netplan apply
+   47  ip a s
+   48  ip r s
+   49  ping www.google.com
+   50  reboot
+   51  ip ro s
+   52  ip a s
+   53  ping 192.168.8.1
+   54  ip r s
+   55  cp /etc/netplan/00-installer-config.yaml netplanConfig.yaml
+   56  ls -ll
+   57  vim /etc/netplan/00-installer-config.yaml
+   58  netplan apply
+   59  vim /etc/netplan/00-installer-config.yaml
+   60  netplan apply
+   61  cat /etc/netplan/00-installer-config.yaml
+   62  ls -l
+   63  cat > DevOpsNotes.txt
+   64  su - deployment-user
+   65  visudo
+   66  su - deployment-user
+   67  ping -c4 www.google.com
+   68  ping 192.168.8.1
+   69  apt update
+   70  shutdown now
+   71  cat DevOpsNotes.txt
+   72  cd /etc/nginx/
+   73  ls -l
+   74  ls -l sites-available/
+   75  cat sites-available/polling
+   76  vim sites-available/polling
+   77  cat sites-available/polling
+   78  ls -l sites-enabled/
+   79  cp sites-available/polling sites-enabled/polling
+   80  cat sites-enabled/polling
+   81  ls -l /home/deployment-user/polling/
+   82  ip a s | grep 'inet '
+   83  vim sites-available/polling
+   84  systemctl restart nginx.service
+   85  systemctl restart gunicorn.service
+   86  cat sites-available/polling
+   87  cd
+   88  cat /etc/hosts
+   89  clear
+   90  cat /etc/hosts
+   91  vim /etc/hosts
+   92  shutdown now
+   93  ip a s
+   94  ip a s | grep 'inet '
+   95  shutdown now
+   96  ip a s
+   97  ip a s  | grep 'inet '
+   98  shutdown now
+   99  clear
+  100  ls -l /etc/netplan/00-installer-config.yaml
+  101  cat /etc/netplan/00-installer-config.yaml
+  102  history
+  103  exit
+  104  shutdown now
+  105  ls -l /home/
+  106  ls -l /home/deployment-user/
+  107  ls -l /home/deployment-user/polling/
+  108  su - deployment-user
+  109  ls -l bin/systemupdate.sh
+  110  ./bin/systemupdate.sh
+  111  reboot
+  112  su - deployment-user
+  113  reboot
+  114  shutdown -P now
+  115  reboot
+  116  ls -l
+  117  ./bin/systemupdate.sh
+  118  ls -l
+  119  ./bin/systemupdate.sh
+  120  ls -l
+  121  pwd
+  122  whoami
+  123  ls -l
+  124  ./bin/systemupdate.sh
+  125  ping www.google.com -c 7
+  126  ping www.google.com
+  127  reboot
+  128  ping www.google.com
+  129  ./bin/systemupdate.sh
+  130  reboot
+  131  clear
+  132  ./bin/systemupdate.sh
+  133  shutdown -P now
+  134  clear
+  135  ls -l
+  136  ls -l ./bin/systemupdate.sh
+  137  ./bin/systemupdate.sh
+  138  ping www.google.com
+  139  ls -l ./bin/systemupdate.sh
+  140  ./bin/systemupdate.sh
+  141  ./bin/systemupdate.sh
+  142  ping www.google.com
+  143  reboot
+  144  ls -l
+  145  ls -l ./bin/systemupdate.sh
+  146  cat ./bin/systemupdate.sh
+  147  ./bin/systemupdate.sh
+  148  clear
+  149  ./bin/systemupdate.sh
+  150  ping www.google.com
+  151  cat /etc/netplan/00-installer-config.yaml
+  152  clear
+  153  cd
+  154  pwd
+  155  ./bin/systemupdate.sh
+  156  ping www.google.com
+  157  ./bin/systemupdate.sh
+  158  reboot
+  159  ping www.google.com
+  160  ./bin/systemupdate.sh
+  161  shutdown -P now
+  162  clear
+  163  ls -l ./bin/systemupdate.sh
+  164  cat ./bin/systemupdate.sh
+  165  ./bin/systemupdate.sh
+  166  shutdown -P now
+  167  ip a s | grep 'inet '
+  168  shutdown -P now
+  169  ls -l ./bin/systemupdate.sh
+  170  cat ./bin/systemupdate.sh
+  171  ./bin/systemupdate.sh
+  172  shutdown -P now
+  173  ls -l
+  174  ls -l ./bin/systemupdate.sh
+  175  ./bin/systemupdate.sh
+  176  ifconfig
+  177  apt install net-tools -y
+  178  ifconfig
+  179  ifconfig  | grep 'inet '
+  180  ls -l /etc/netplan/00-installer-config.yaml
+  181  vim /etc/netplan/00-installer-config.yaml
+  182  netplan
+  183  netplan try
+  184  ifconfig | grep 'inet '
+  185  ifconfig -a
+  186  su - deployment-user
+  187  ifconfig | grep 'inet '
+  188  netplan apply
+  189  ifconfig | grep 'inet '
+  190  reboot
+  191  ifconfig | grep 'inet '
+  192  shutdown -P now
+  193  ls -l ./bin/systemupdate.sh
+  194  ./bin/systemupdate.sh
+  195  ifconfig | grep 'inet '
+  196  netstat -antp
+  197  netstat -antp | grep gitlab
+  198  ifconfig | grep 'inet '
+  199  history
+root@app-server:~#
+
+
+
+
+
+
+
+sudo apt update -y
+
+sudo apt install -y openjdk-17-jre
+
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]   https://pkg.jenkins.io/debian-stable binary/ | sudo tee   /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+sudo apt update -y
+
+sudo apt install -y jenkins
+
+systemctl status jenkins.service
+
+cat /var/lib/jenkins/secrets/initialAdminPassword

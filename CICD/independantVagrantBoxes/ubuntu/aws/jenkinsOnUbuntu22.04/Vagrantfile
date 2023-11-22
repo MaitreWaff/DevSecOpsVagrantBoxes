@@ -1,0 +1,26 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.hostmanager.enabled = true
+  config.hostmanager.manage_host = true
+  #config.vm.synced_folder "../scripts", "/scripts"
+  config.vm.synced_folder "./scripts", "/scripts"
+  # config.vm.provision "shell", inline:  "/vagrant/scripts/defaultScript.sh"
+  config.vm.provision "shell", inline:  "/scripts/defaultScript.sh"
+
+  ### jenkins01 VM ###
+  config.vm.define "jenkins01", primary: true do |jenkins01|
+    jenkins01.vm.box = "generic/ubuntu2204"
+    # jenkins01.vm.box = "geerlingguy/centos7"
+    jenkins01.vm.hostname = "jenkins01"
+    jenkins01.vm.network "private_network", ip: "192.168.75.11"
+    # jenkins01.vm.boot_timeout = 1800
+    jenkins01.vm.provider "virtualbox" do |vb|
+      vb.name = "jenkins01"
+      vb.memory = "4096"
+    end
+    jenkins01.vm.provision "shell", inline: "/scripts/deploy_jenkins.sh"
+  end
+
+end

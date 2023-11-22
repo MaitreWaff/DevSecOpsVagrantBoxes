@@ -1,0 +1,93 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.hostmanager.enabled = true
+  config.hostmanager.manage_host = true
+  #config.vm.synced_folder "../scripts", "/scripts"
+  config.vm.synced_folder "./scripts", "/scripts"
+  # config.vm.provision "shell", inline:  "/vagrant/scripts/defaultScript.sh"
+  config.vm.provision "shell", inline:  "/scripts/defaultScript.sh"
+
+  # config.vm.box = "generic/ubuntu2204"
+
+  # ### jenkinsmaster01 VM ###
+  # config.vm.define "jenkinsmaster01", primary: true do |jenkinsmaster01|
+  #   jenkinsmaster01.vm.box = "generic/ubuntu2204"
+  #   # jenkinsmaster01.vm.box = "geerlingguy/centos7"
+  #   jenkinsmaster01.vm.hostname = "jenkinsmaster01"
+  #   jenkinsmaster01.vm.network "private_network", ip: "192.168.75.11"
+  #   # jenkinsmaster01.vm.boot_timeout = 1800
+  #   jenkinsmaster01.vm.provider "virtualbox" do |vb|
+  #     vb.name = "jenkinsmaster01"
+  #     vb.memory = "2048"
+  #   end
+  #   jenkinsmaster01.vm.provision "shell", inline: "/scripts/deploy_jenkins.sh"
+  # end
+
+  # ### jenkinsagent01 VM ###
+  # config.vm.define "jenkinsagent01" do |jenkinsagent01|
+  #   jenkinsagent01.vm.box = "generic/ubuntu2204"
+  #   # jenkinsagent01.vm.box = "geerlingguy/centos7"
+  #   jenkinsagent01.vm.hostname = "jenkinsagent01"
+  #   jenkinsagent01.vm.network "private_network", ip: "192.168.75.11"
+  #   # jenkinsagent01.vm.boot_timeout = 1800
+  #   jenkinsagent01.vm.provider "virtualbox" do |vb|
+  #     vb.name = "jenkinsagent01"
+  #     vb.memory = "2048"
+  #   end
+  #   jenkinsagent01.vm.provision "shell", inline: "/scripts/deploy_jenkins.sh"
+  # end
+
+  # ### app01 VM ###
+  # config.vm.define "app01" do |app01|
+  #   app01.vm.box = "generic/ubuntu2204"
+  #   # app01.vm.box = "geerlingguy/centos7"
+  #   app01.vm.hostname = "app01"
+  #   app01.vm.network "private_network", ip: "192.168.75.11"
+  #   # app01.vm.boot_timeout = 1800
+  #   app01.vm.provider "virtualbox" do |vb|
+  #     vb.name = "app01"
+  #     vb.memory = "1024"
+  #   end
+  #   # app01.vm.provision "shell", inline: "/scripts/deploy_jenkins.sh"
+  # end
+
+
+  ### jenkins01 VM ###
+  config.vm.define "jenkins01", primary: true do |jenkins01|
+    jenkins01.vm.box = "generic/ubuntu2204"
+    # jenkins01.vm.box = "geerlingguy/centos7"
+    jenkins01.vm.hostname = "jenkins01"
+    jenkins01.vm.network "private_network", ip: "192.168.75.11"
+    # jenkins01.vm.boot_timeout = 1800
+    jenkins01.vm.provider "virtualbox" do |vb|
+      vb.name = "jenkins01"
+      vb.memory = "4096"
+    end
+    jenkins01.vm.provision "shell", inline: "/scripts/deploy_jenkins.sh"
+  end
+
+  # ### jenkins02 VM ###
+  # config.vm.define "jenkins02" do |jenkins02|
+  #   jenkins02.vm.box = "generic/ubuntu2204"
+  #   # jenkins02.vm.box = "geerlingguy/centos7"
+  #   jenkins02.vm.hostname = "jenkins02"
+  #   jenkins02.vm.network "private_network", ip: "192.168.75.11"
+  #   # jenkins02.vm.boot_timeout = 1800
+  #   jenkins02.vm.provider "virtualbox" do |vb|
+  #     vb.name = "jenkins02"
+  #     vb.memory = "2048"
+  #   end
+  #   jenkins02.vm.provision "shell", inline: "/scripts/deploy_jenkins.sh"
+  # end
+
+
+  # Enable provisioning with a shell script. Additional provisioners such as
+  # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
+  # documentation for more information about their specific syntax and use.
+  # config.vm.provision "shell", inline: <<-SHELL
+  #   apt-get update
+  #   apt-get install -y apache2
+  # SHELL
+end
