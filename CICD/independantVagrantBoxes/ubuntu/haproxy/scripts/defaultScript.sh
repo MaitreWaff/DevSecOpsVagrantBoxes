@@ -88,4 +88,8 @@ id
 whoami
 pwd
 ls -l
+# openssl req -x509 -newkey rsa:2048 -keyout haproxy.key -out haproxy.crt -days 365 -nodes
+# cat haproxy.key haproxy.crt > haproxy.pem
+# mkdir -p /etc/ssl/haproxy/
+# cp haproxy.* /etc/ssl/haproxy/
 echo "#############################################################################"
