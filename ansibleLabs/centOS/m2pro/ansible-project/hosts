@@ -1,0 +1,6 @@
+[webservers]
+ansibletarget01.example.com
+
+[dbservers]
+ansibletarget02.example.com
+

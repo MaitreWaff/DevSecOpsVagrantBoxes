@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Print Message
+      debug:
+        msg: Hello Ansible World!
