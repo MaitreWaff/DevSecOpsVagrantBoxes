@@ -1,0 +1,48 @@
+ENV["LC_ALL"] = "en_US.UTF-8"
+Vagrant.configure("2") do |config|
+
+  # config.vm.provider "vmware_desktop" do |vmware|
+  #   vmware.allowlist_verified = true
+  # end
+
+  config.hostmanager.enabled = true
+  config.hostmanager.manage_host = true
+  #config.vm.synced_folder "../scripts", "/scripts"
+  config.vm.provision "shell", inline:  "/vagrant/scripts/defaultScript.sh"
+
+  ### keycloak VM ###
+  config.vm.define "keycloak", primary: true do |keycloak|
+
+    # keycloak.vm.provider "vmware_desktop" do |vmware|
+    #   vmware.allowlist_verified = true
+    # end
+
+    keycloak.vm.box = "gyptazy/ubuntu22.04-arm64"
+    keycloak.vm.hostname = "keycloak.example.com"
+    keycloak.vm.network "private_network", ip: "192.168.75.120"
+    keycloak.vm.boot_timeout = 1800
+    #keycloak.vm.synced_folder "../scripts", "/scripts", type="rsync"
+    keycloak.vm.provider "vmware_desktop" do |vb|
+      # vb.name = "keycloak"
+      vb.vmx["ethernet0.pcislotnumber"] = "160"
+      vb.allowlist_verified = true
+      vb.cpus = 2
+      vb.memory = "2048"
+    end
+    # keycloak.vm.provision "shell", inline: "/vagrant/scripts/installKeycloak.sh"
+    # keycloak.vm.provision "shell", inline: <<-SHELL
+    #   # apt repolist
+    #   apt install -y epel-release
+    #   apt repolist
+
+    #   apt install -y wget vim
+    #   #  python3-pip
+    #   apt install -y ansible
+
+    #   timedatectl set-timezone Africa/Douala
+    #   echo "TZ='Africa/Douala'; export TZ" >> ~/.profile
+    #   cat /vagrant/scripts/vimrc >> ~/.vimrc
+    # SHELL
+  end
+
+end

@@ -65,6 +65,9 @@ sudo apt-get install -y grafana-enterprise
 # Starts Grafana Server
 systemctl start grafana-server.service
 
+# Reload Services
+systemctl daemon-reload
+
 # Enables Grafana Server
 systemctl enable grafana-server.service
 
